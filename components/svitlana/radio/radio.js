@@ -49,10 +49,10 @@ FamousFramework.scene('svitlana:radio', {
             'origin': [0.5, 0],
             'mount-point': [0.5, 0],
             'size': [250, 300],
-            'style': function (containerColor1) {
+            'style': function (containerColor2) {
                 return {
                     'border-radius': '2px',
-                    'background-color': containerColor1,
+                    'background-color': containerColor2,
                     'overflow': 'hidden',
                 };
             },
@@ -83,10 +83,10 @@ FamousFramework.scene('svitlana:radio', {
             'origin': [0.5, 1],
             'mount-point': [0.5, 1],
             'size': [240, 176],
-            'style': function (containerColor1) {
+            'style': function (containerColor2) {
                 return {
                     'border-radius': '2px',
-                    'background-color': containerColor1,
+                    'background-color': containerColor2,
                     'overflow': 'hidden',
                 };
             },
@@ -214,8 +214,8 @@ FamousFramework.scene('svitlana:radio', {
         progWidth: 164,
         progHeight: 164,
         progMargin: 5,
-        containerColor2: '#E0E0E0',
-        containerColor1: '#F5F5F5',
+        containerColor1: '#E0E0E0',
+        containerColor2: '#F5F5F5',
         containerColor3: '#FAFAFA',
         containerRed: '#E53935',
         programs: radioPrograms,
