@@ -36,26 +36,44 @@ FamousFramework.scene('svitlana:radio', {
                 return `<div>Radio "OSA"</div>`;
             },
             'style': {
+                'line-height': '1.5em',
                 'font-size': '2em',
                 'text-align': 'center',
-                'color': '#616161'
-            },
-        },
-        '#radioLogo': {
-            'align': [0.5, 0.6],
-            'origin': [0.5, 0.5],
-            'mount-point': [0.5, 0.5],
-            'size': [200, 200],
-            'content': function () {
-                return `<img src='https://s3-us-west-2.amazonaws.com/svet.com/radio/wasp.jpg'/>`;
-            },
-            'style': {
-                'border-radius': '2px',
-                'cursor': 'pointer'
-
+                'color': '#BDBDBD'
             },
             'position-z': '3'
         },
+        '#radioLogo': {
+            'align': [0.5, 0.6],
+            'origin': [0.5, 0.6],
+            'mount-point': [0.5, 0.6],
+            'size': [200, 200],
+            ////'content': function () {
+            ////    return `<img src='https://s3-us-west-2.amazonaws.com/svet.com/radio/wasp.jpg'/>`;
+            ////},
+            'style': {
+                'background': 'url("https://s3-us-west-2.amazonaws.com/svet.com/radio/wasp.jpg") no-repeat',
+                'text-align': 'center',
+                'font-size': '4em',
+                'cursor': 'pointer'
+            },
+            'position-z': '3'
+        },
+
+        '#radioFooter': {
+            'align': [0.5, 1],
+            'origin': [0.5, 1],
+            'mount-point': [0.5, 1],
+            'size': [250, 40],
+            'style': function (containerColor4) {
+                return {
+                    'background-color': containerColor4,
+                    'box-shadow': 'rgba(0, 0, 0, 0.298039) 0px 1px '
+                };
+            },
+            'position-z': '3'
+        },
+
         '#programsRoot': {
             'align': [0.5, 0],
             'origin': [0.5, 0],
@@ -81,13 +99,25 @@ FamousFramework.scene('svitlana:radio', {
             'align': [0.5, 0],
             'origin': [0.5, 0],
             'mount-point': [0.5, 0],
-            'size': [250, 50],
+            'size': [250, 40],
             'style': function (containerColor1) {
                 return {
                     'background-color': containerColor1,
                     'box-shadow': 'rgba(0, 0, 0, 0.298039) 0px 1px '
                 };
             },
+        },
+        '#programsTitle': {
+            'content': function () {
+                return `<div>Radio Programs Archive</div>`;
+            },
+            'style': {
+                'line-height': '2.4em',
+                'font-size': '1em',
+                'text-align': 'center',
+                'color': '#BDBDBD'
+            },
+            'position-z': '3'
         },
         '#slider': {
             'align': [0.5, 0.64],
@@ -245,8 +275,10 @@ FamousFramework.scene('svitlana:radio', {
         programs: radioPrograms,
         activeIndex: 0,
         listPosition: 0,
-        angle: Math.PI,
-        svOpacity: 1,
+        angle: 0,
+        svOpacity: 0,
+        //angle: Math.PI,
+        //svOpacity: 1,
     },
     tree: 'tree.html'
 }).config({
