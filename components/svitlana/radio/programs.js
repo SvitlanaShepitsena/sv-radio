@@ -1,22 +1,22 @@
 var radioPrograms = [
     {
         'style': {
-            'background-color': 'brown'
+            'background-color': '#222326'
         }
     },
     {
         'style': {
-            'background-color': 'yellow'
+            'background-color': '#222326'
         }
     },
     {
         'style': {
-            'background-color': 'lightblue'
+            'background-color': '#222326'
         }
     },
     {
         'style': {
-            'background-color': 'darkmagenta'
+            'background-color': '#222326'
         }
     }
 ]
