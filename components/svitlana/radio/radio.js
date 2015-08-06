@@ -33,7 +33,7 @@ FamousFramework.scene('svitlana:radio', {
         },
         '#radioTitle': {
             'content': function () {
-                return `<div>Radio "OSA"</div>`;
+                return `<div style="text-color:white"><i class="mdi mdi-bell"></i>Radio "OSA"</div>`;
             },
             'style': {
                 'line-height': '1.5em',
@@ -148,24 +148,31 @@ FamousFramework.scene('svitlana:radio', {
             'align': [0.55, 0.85],
             'origin': [0.55, 0.85],
             'mount-point': [0.55, 0.85],
-            'size': [26, 26],
+            'size': [40, 40],
             'background-color': '#1C1D20',
             content: function () {
-                return `<img src='https://s3-us-west-2.amazonaws.com/svet.com/radio/arrow-right.png'/>`;
+                return `<div> > </div>`;
             },
             'style': {
+                'font-size': '30px',
+                'line-height': '30px',
+                'color': '#ffffff',
                 'cursor': 'pointer',
+
             },
         },
         '#back': {
             'align': [0.45, 0.85],
             'origin': [0.45, 0.85],
             'mount-point': [0.45, 0.85],
-            'size': [26, 26],
+            'size': [40, 40],
             content: function () {
-                return `<img src='https://s3-us-west-2.amazonaws.com/svet.com/radio/arrow-left.png'/>`;
+                return `<div> < </div>`;
             },
             'style': {
+                'font-size': '30px',
+                'line-height': '30px',
+                'color': '#ffffff',
                 'cursor': 'pointer',
             },
         },
@@ -193,7 +200,30 @@ FamousFramework.scene('svitlana:radio', {
             },
 
             '$repeat': function (programs) {
-                return programs;
+                var radioPrograms = [
+                    {
+                        'style': {
+                            'background-color': '#222326'
+                        }
+                    },
+                    {
+                        'style': {
+                            'background-color': '#222326'
+                        }
+                    },
+                    {
+                        'style': {
+                            'background-color': '#222326'
+                        }
+                    },
+                    {
+                        'style': {
+                            'background-color': '#222326'
+                        }
+                    }
+                ]
+
+                return radioPrograms;
             },
             'content': function ($index) {
                 return '<div> July 25</div>';
@@ -272,25 +302,12 @@ FamousFramework.scene('svitlana:radio', {
         containerColor3: '#FAFAFA',
         containerColor4: '#424242',
         containerRed: '#E53935',
-        programs: radioPrograms,
         activeIndex: 0,
         listPosition: 0,
-        angle: 0,
-        svOpacity: 0,
-        //angle: Math.PI,
-        //svOpacity: 1,
+        //angle: 0,
+        //svOpacity: 0,
+        angle: Math.PI,
+        svOpacity: 1,
     },
     tree: 'tree.html'
-}).config({
-    includes: [
-        'style.css',
-        'styles/font-awesome.min.css',
-        'styles/fonts/FontAwesome.otf',
-        'styles/fonts/fontawesome-webfont.eot',
-        'styles/fonts/fontawesome-webfont.svg',
-        'styles/fonts/fontawesome-webfont.ttf',
-        'styles/fonts/fontawesome-webfont.woff',
-        'styles/fonts/fontawesome-webfont.woff2',
-        'programs.js'
-    ]
 });
