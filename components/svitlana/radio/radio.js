@@ -188,6 +188,22 @@ FamousFramework.scene('svitlana:radio', {
                 };
             },
         },
+        '#btn3': {
+            'align': [0.1, 0.5],
+            'origin': [0.1, 0.5],
+            'mount-point': [0.1, 0.5],
+            'size': [50, 16],
+            'style': function (accentColor200) {
+                return {
+                    'font-size': '0.9em',
+                    'color': accentColor200,
+                    'cursor': 'pointer',
+                };
+            },
+            'content': function () {
+                return `<a style="display:block">LIVE</a>`;
+            },
+        },
         '#programsNav': {
             'align': [0.5, 0.5],
             'origin': [0.5, 0.5],
@@ -255,14 +271,14 @@ FamousFramework.scene('svitlana:radio', {
             //content: function () {
             //    return `<img src='https://s3-us-west-2.amazonaws.com/svet.com/radio/orange-backdrop-200.jpg'/>`;
             //},
-            'style': function (accentColor50, whiteframe3) {
+            'style': function (primaryColor, accentColor50, whiteframe3) {
                 return {
                     'border-radius': '2px',
                     'background-color': accentColor50,
                     'text-align': 'center',
                     'font-size': '1.8em',
                     'padding-top': '8px',
-                    'color': '#393939',
+                    'color': primaryColor,
                     'box-shadow': whiteframe3
                 };
             },
@@ -272,7 +288,7 @@ FamousFramework.scene('svitlana:radio', {
 
             },
             'content': function ($index) {
-                return '<div> July 25</div>';
+                return '<div style="margin-top:8px"> July 25</div>';
             },
             'position-x': function ($index, listPosition, progWidth, progMargin) {
 
@@ -289,7 +305,7 @@ FamousFramework.scene('svitlana:radio', {
         }
     },
     events: {
-        '#radioLogo,#slider': {
+        '#radioLogo,#slider,#btn2, #btn3': {
             'click': function ($state) {
                 $state.set('angle', $state.get('angle') + Math.PI, {
                     duration: 1000
