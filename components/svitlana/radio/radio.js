@@ -23,66 +23,108 @@ FamousFramework.scene('svitlana:radio', {
             'origin': [0.5, 0],
             'mount-point': [0.5, 0],
             'size': [250, 50],
-            'style': function (containerColor1) {
+            'style': function (primaryColor) {
                 return {
-                    'background-color': containerColor1,
-                    'box-shadow': 'rgba(0, 0, 0, 0.298039) 0px 1px '
+                    //'background-color': primaryColor,
+                    //'box-shadow': 'rgba(0, 0, 0, 0.298039) 0px 1px '
                 };
             },
             'position-z': '2'
         },
         '#radioTitle': {
             'content': function () {
-                return '<div style="text-color:white">Radio "OSA"</div>';
+                return '<div style=" margin-left:8px;margin-top:4px;text-color:white">Radio "OSA"</div>';
             },
-            'style': {
-                'line-height': '1.5em',
-                'font-size': '2em',
-                'text-align': 'center',
-                'color': '#BDBDBD'
+            'style': function (accentColor100) {
+                return {
+                    'line-height': '1.5em',
+                    'font-size': '1.5em',
+                    'text-align': 'left',
+                    'color': accentColor100
+                };
             },
             'position-z': '3'
         },
         '#radioLogo': {
-            'align': [0.5, 0.6],
-            'origin': [0.5, 0.6],
-            'mount-point': [0.5, 0.6],
-            'size': [200, 200],
-            ////'content': function () {
-            ////    return `<img src='https://s3-us-west-2.amazonaws.com/svet.com/radio/wasp.jpg'/>`;
-            ////},
+            'align': [0.5, 0],
+            'origin': [0.5, 0],
+            'mount-point': [0.5, 0],
+            'size': [250, 220],
             'style': {
-                'background': 'url("https://s3-us-west-2.amazonaws.com/svet.com/radio/wasp.jpg") no-repeat',
+                'background': 'url("https://s3-us-west-2.amazonaws.com/svet.com/radio/radio-backdrop.jpg") no-repeat',
                 'text-align': 'center',
                 'font-size': '4em',
-                'cursor': 'pointer'
+                'cursor': 'pointer',
+                'opacity': '.9'
             },
-            'position-z': '3'
+            'position-z': '1'
         },
 
         '#radioFooter': {
             'align': [0.5, 1],
             'origin': [0.5, 1],
             'mount-point': [0.5, 1],
-            'size': [250, 40],
-            'style': function (containerColor4) {
+            'size': [250, 80],
+            'style': function (accentColor50) {
                 return {
-                    'background-color': containerColor4,
+                    'background-color': accentColor50,
                     'box-shadow': 'rgba(0, 0, 0, 0.298039) 0px 1px '
                 };
             },
-            'position-z': '3'
+            'position-z': '1'
+        },
+        '#radioNav': {
+            'align': [0, 0.5],
+            'origin': [0, 0.5],
+            'mount-point': [0, 0.5],
+            'size': [160, 60],
+            'style': {
+                'background-color': 'none',
+            },
+        },
+
+        '#btn1': {
+            'align': [0.2, 0.5],
+            'origin': [0.2, 0.5],
+            'mount-point': [0.2, 0.5],
+            'size': [60, 30],
+            'style': function (accentColor) {
+                return {
+                    'font-size': '1em',
+                    'color': accentColor,
+                    'cursor': 'pointer',
+                };
+            },
+            'content': function () {
+                return `<a style="display:block">LIVE</a>`;
+            },
+        },
+        '#btn2': {
+            'align': [0.9, 0.5],
+            'origin': [0.9, 0.5],
+            'mount-point': [0.9, 0.5],
+            'size': [60, 30],
+            'style': function (primaryColor) {
+                return {
+                    'font-size': '1em',
+                    'color': primaryColor,
+                    'cursor': 'pointer',
+                };
+            },
+            'content': function () {
+                return `<a style="display:block">ARCHIVE</a>`;
+            },
         },
 
         '#programsRoot': {
-            'align': [0.5, 0],
-            'origin': [0.5, 0],
-            'mount-point': [0.5, 0],
+            'align': [0.5, 1],
+            'origin': [0.5, 1],
+            'mount-point': [0.5, 1],
             'size': [250, 300],
-            'style': function (containerColor2) {
+            'style': function (primaryColor50) {
                 return {
                     'border-radius': '2px',
-                    'background-color': containerColor2,
+                    'background-color': primaryColor50,
                     'overflow': 'hidden',
                 };
             },
@@ -109,25 +151,27 @@ FamousFramework.scene('svitlana:radio', {
         },
         '#programsTitle': {
             'content': function () {
-                return `<div>Radio Programs Archive</div>`;
+                return `<div>RADIO PROGRAMS ARCHIVE</div>`;
             },
-            'style': {
-                'line-height': '2.4em',
-                'font-size': '1em',
-                'text-align': 'center',
-                'color': '#BDBDBD'
+            'style': function (accentColor100, accentColor) {
+                return {
+                    'line-height': '2.6em',
+                    'font-size': '.95em',
+                    'text-align': 'center',
+                    'color': accentColor100,
+                    'font-family': 'Lato, sans-serif',
+                };
             },
             'position-z': '3'
         },
         '#slider': {
-            'align': [0.5, 0.64],
-            'origin': [0.5, 0.64],
-            'mount-point': [0.5, 0.64],
-            'size': [240, 176],
-            'style': function (containerColor2) {
+            'align': [0.5, 0.5],
+            'origin': [0.5, 0.5],
+            'mount-point': [0.5, 0.5],
+            'size': [240, 190],
+            'style': function (primaryColor50) {
                 return {
                     'border-radius': '2px',
-                    'background-color': containerColor2,
                     'overflow': 'hidden',
                 };
             },
@@ -137,9 +181,9 @@ FamousFramework.scene('svitlana:radio', {
             'origin': [0.5, 1],
             'mount-point': [0.5, 1],
             'size': [250, 40],
-            'style': function (containerColor4) {
+            'style': function (primaryColor) {
                 return {
-                    'background-color': containerColor4,
+                    'background-color': primaryColor,
                     'box-shadow': 'rgba(0, 0, 0, 0.298039) 0px 1px '
                 };
             },
@@ -148,38 +192,56 @@ FamousFramework.scene('svitlana:radio', {
             'align': [0.5, 0.5],
             'origin': [0.5, 0.5],
             'mount-point': [0.5, 0.5],
-            'size': [50, 30]
+            'size': [70, 30]
         },
         '#forw': {
             'align': [1, 0.5],
             'origin': [1, 0.5],
             'mount-point': [1, 0.5],
-            'size': [22, 30],
-            'background-color': '#1C1D20',
+            'size': [30, 30],
             content: function () {
-                return `<a style="display:block;width:22px;height:30px;text-align: right"> > </a>`;
+                return `<a style="margin-left:2px;display:block;width:22px;height:30px;text-align: right"> > </a>`;
             },
-            'style': {
-                'font-size': '30px',
-                'line-height': '30px',
-                'color': '#ffffff',
-                'cursor': 'pointer',
-
+            'style': function (primaryColor, primaryColorLight, accentColor, accentColor100, whiteframe2) {
+                return {
+                    'border-radius': '50%',
+                    'background-color': accentColor,
+                    'box-shadow': whiteframe2,
+                    'font-size': '26px',
+                    'font-weight': '500',
+                    'line-height': '30px',
+                    'color': primaryColor,
+                    'cursor': 'pointer',
+                };
             },
         },
         '#back': {
             'align': [0, 0.5],
             'origin': [0, 0.5],
             'mount-point': [0, 0.5],
-            'size': [22, 30],
+            'size': [30, 30],
             content: function () {
                 return `<a style="display:block;width:22px;height:30px;text-align: right"> < </a>`;
             },
-            'style': {
-                'font-size': '30px',
-                'line-height': '30px',
-                'color': '#ffffff',
-                'cursor': 'pointer',
+            'style': function (primaryColor, primaryColorLight, accentColor, accentColor100, whiteframe2) {
+                return {
+                    'border-radius': '50%',
+                    'background-color': accentColor,
+                    'box-shadow': whiteframe2,
+                    'font-size': '26px',
+                    'font-weight': '500',
+                    'line-height': '30px',
+                    'color': primaryColor,
+                    'cursor': 'pointer',
+
+                    //'border-radius': '50%',
+                    //'background-color': primaryColorLight,
+                    //'box-shadow': whiteframe3,
+                    //'font-size': '26px',
+                    //'line-height': '30px',
+                    //'color': accentColor100,
+                    //'cursor': 'pointer',
+                };
             },
         },
         '.program': {
@@ -193,10 +255,10 @@ FamousFramework.scene('svitlana:radio', {
             //content: function () {
             //    return `<img src='https://s3-us-west-2.amazonaws.com/svet.com/radio/orange-backdrop-200.jpg'/>`;
             //},
-            'style': function (containerColor3, whiteframe3) {
+            'style': function (accentColor50, whiteframe3) {
                 return {
                     'border-radius': '2px',
-                    'background-color': containerColor3,
+                    'background-color': accentColor50,
                     'text-align': 'center',
                     'font-size': '1.8em',
                     'padding-top': '8px',
@@ -300,13 +362,23 @@ FamousFramework.scene('svitlana:radio', {
         ],
 
         progWidth: 164,
-        progHeight: 164,
+        progHeight: 200,
         progMargin: 5,
         whiteframe1: "rgba(0, 0, 0, 0.298039) 0px 1px ",
+        whiteframe2: "rgba(0, 0, 0, 0.137255) 0px 2px 4px -1px, rgba(0, 0, 0, 0.0980392) 0px 4px 5px 0px, rgba(0, 0, 0, 0.0823529) 0px 1px 10px 0px",
         whiteframe3: "rgba(0, 0, 0, 0.298039) 0px 3px 5px -1px,rgba(0, 0, 0, 0.0980392) 0px 6px 10px 0px, rgba(0, 0, 0, 0.0823529) 0px 1px 18px 0px",
         /*Colors*/
-        primaryColor: '#5d4037',
-        accentColor: '#ffab00',
+        primaryColor: '#3e2723',
+        primaryColor50: '#efebe9',
+        primaryColor100: '#d7ccc8',
+        primaryColor200: '#bcaaa4',
+        primaryColor800: '4E342E',
+        primaryColorLight: '#5d4037',
+        accentColor: '#FFAB00',
+        accentColor50: '#FFF8E1',
+        accentColor100: '#FFECB3',
+        accentColor200: '#FFE082',
+        accentColorLight: '#FFC400',
 
         //text
         baseColor: '#000000',
