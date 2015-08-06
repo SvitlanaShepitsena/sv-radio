@@ -33,7 +33,7 @@ FamousFramework.scene('svitlana:radio', {
         },
         '#radioTitle': {
             'content': function () {
-                return `<div style="text-color:white"><i class="mdi mdi-bell"></i>Radio "OSA"</div>`;
+                return '<div style="text-color:white">Radio "OSA"</div>';
             },
             'style': {
                 'line-height': '1.5em',
@@ -100,9 +100,9 @@ FamousFramework.scene('svitlana:radio', {
             'origin': [0.5, 0],
             'mount-point': [0.5, 0],
             'size': [250, 40],
-            'style': function (containerColor1) {
+            'style': function (primaryColor) {
                 return {
-                    'background-color': containerColor1,
+                    'background-color': primaryColor,
                     'box-shadow': 'rgba(0, 0, 0, 0.298039) 0px 1px '
                 };
             },
@@ -144,14 +144,20 @@ FamousFramework.scene('svitlana:radio', {
                 };
             },
         },
+        '#programsNav': {
+            'align': [0.5, 0.5],
+            'origin': [0.5, 0.5],
+            'mount-point': [0.5, 0.5],
+            'size': [50, 30]
+        },
         '#forw': {
-            'align': [0.55, 0.85],
-            'origin': [0.55, 0.85],
-            'mount-point': [0.55, 0.85],
-            'size': [40, 40],
+            'align': [1, 0.5],
+            'origin': [1, 0.5],
+            'mount-point': [1, 0.5],
+            'size': [22, 30],
             'background-color': '#1C1D20',
             content: function () {
-                return `<div> > </div>`;
+                return `<a style="display:block;width:22px;height:30px;text-align: right"> > </a>`;
             },
             'style': {
                 'font-size': '30px',
@@ -162,12 +168,12 @@ FamousFramework.scene('svitlana:radio', {
             },
         },
         '#back': {
-            'align': [0.45, 0.85],
-            'origin': [0.45, 0.85],
-            'mount-point': [0.45, 0.85],
-            'size': [40, 40],
+            'align': [0, 0.5],
+            'origin': [0, 0.5],
+            'mount-point': [0, 0.5],
+            'size': [22, 30],
             content: function () {
-                return `<div> < </div>`;
+                return `<a style="display:block;width:22px;height:30px;text-align: right"> < </a>`;
             },
             'style': {
                 'font-size': '30px',
@@ -200,30 +206,8 @@ FamousFramework.scene('svitlana:radio', {
             },
 
             '$repeat': function (programs) {
-                var radioPrograms = [
-                    {
-                        'style': {
-                            'background-color': '#222326'
-                        }
-                    },
-                    {
-                        'style': {
-                            'background-color': '#222326'
-                        }
-                    },
-                    {
-                        'style': {
-                            'background-color': '#222326'
-                        }
-                    },
-                    {
-                        'style': {
-                            'background-color': '#222326'
-                        }
-                    }
-                ]
+                return programs;
 
-                return radioPrograms;
             },
             'content': function ($index) {
                 return '<div> July 25</div>';
@@ -292,12 +276,46 @@ FamousFramework.scene('svitlana:radio', {
         }
     },
     states: {
+        programs: [
+            {
+                'style': {
+                    'background-color': '#222326'
+                }
+            },
+            {
+                'style': {
+                    'background-color': '#222326'
+                }
+            },
+            {
+                'style': {
+                    'background-color': '#222326'
+                }
+            },
+            {
+                'style': {
+                    'background-color': '#222326'
+                }
+            }
+        ],
+
         progWidth: 164,
         progHeight: 164,
         progMargin: 5,
         whiteframe1: "rgba(0, 0, 0, 0.298039) 0px 1px ",
         whiteframe3: "rgba(0, 0, 0, 0.298039) 0px 3px 5px -1px,rgba(0, 0, 0, 0.0980392) 0px 6px 10px 0px, rgba(0, 0, 0, 0.0823529) 0px 1px 18px 0px",
-        containerColor1: '#303030',
+        /*Colors*/
+        primaryColor: '#5d4037',
+        accentColor: '#ffab00',
+
+        //text
+        baseColor: '#000000',
+        textColor: '#202020',
+        secondaryTextColor: '#727272',
+        hintTextColor: '#9A9A9A',
+        dividersColor: '#DBDBDB',
+        /**/
+        containerColor1: 'primaryColor',
         containerColor2: '#F5F5F5',
         containerColor3: '#FAFAFA',
         containerColor4: '#424242',
@@ -310,4 +328,5 @@ FamousFramework.scene('svitlana:radio', {
         svOpacity: 1,
     },
     tree: 'tree.html'
-});
+})
+;
