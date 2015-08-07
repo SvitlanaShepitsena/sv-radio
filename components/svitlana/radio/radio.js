@@ -51,7 +51,7 @@ FamousFramework.scene('svitlana:radio', {
             'mount-point': [0.5, 0],
             'size': [250, 220],
             'style': {
-                'background': 'url("https://s3-us-west-2.amazonaws.com/svet.com/radio/radio-backdrop.jpg") no-repeat',
+                'background': 'url("https://s3-us-west-2.amazonaws.com/svet.com/radio/radio-backdrop-2.jpg") no-repeat',
                 'text-align': 'center',
                 'font-size': '4em',
                 'cursor': 'pointer',
