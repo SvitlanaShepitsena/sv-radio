@@ -28,7 +28,6 @@ FamousFramework.scene('famous:adapter:flickr', {
     behaviors: {
 
         '#list-photos': {
-
             'request': function(location, gallery, apiKey) {
 
                 //don't kick off a request unless we have an apiKey
@@ -36,7 +35,7 @@ FamousFramework.scene('famous:adapter:flickr', {
 
                 var parameters = {};
                 var url = getPhotoGalleryUrl(apiKey, GALLERIES[gallery]);
-                
+
                 return {
                     'url': url,
                     'parameters': parameters

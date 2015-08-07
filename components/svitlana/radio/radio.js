@@ -77,16 +77,16 @@ FamousFramework.scene('svitlana:radio', {
             'align': [0, 0.5],
             'origin': [0, 0.5],
             'mount-point': [0, 0.5],
-            'size': [160, 60],
+            'size': [240, 60],
             'style': {
                 'background-color': 'none',
             },
         },
 
         '#btn1': {
-            'align': [0.2, 0.5],
-            'origin': [0.2, 0.5],
-            'mount-point': [0.2, 0.5],
+            'align': [0.1, 0.5],
+            'origin': [0.1, 0.5],
+            'mount-point': [0.1, 0.5],
             'size': [60, 30],
             'style': function (accentColor) {
                 return {
@@ -103,7 +103,7 @@ FamousFramework.scene('svitlana:radio', {
             'align': [0.9, 0.5],
             'origin': [0.9, 0.5],
             'mount-point': [0.9, 0.5],
-            'size': [60, 30],
+            'size': [150, 30],
             'style': function (primaryColor) {
                 return {
                     'font-size': '1em',
@@ -112,7 +112,7 @@ FamousFramework.scene('svitlana:radio', {
                 };
             },
             'content': function () {
-                return `<a style="display:block">ARCHIVE</a>`;
+                return `<a style="display:block">PROGRAMS 2015</a>`;
             },
         },
 
@@ -151,7 +151,7 @@ FamousFramework.scene('svitlana:radio', {
         },
         '#programsTitle': {
             'content': function () {
-                return `<div>RADIO PROGRAMS ARCHIVE</div>`;
+                return `<div>RADIO PROGRAMS 2015</div>`;
             },
             'style': function (accentColor100, accentColor) {
                 return {
@@ -168,13 +168,17 @@ FamousFramework.scene('svitlana:radio', {
             'align': [0.5, 0.5],
             'origin': [0.5, 0.5],
             'mount-point': [0.5, 0.5],
-            'size': [240, 190],
+            'size': [240, 220],
+
             'style': function (primaryColor50) {
                 return {
                     'border-radius': '2px',
                     'overflow': 'hidden',
                 };
             },
+            'rotation-z': function () {
+                return -Math.PI / 2.1;
+            }
         },
         '#programsFooter': {
             'align': [0.5, 1],
@@ -193,15 +197,31 @@ FamousFramework.scene('svitlana:radio', {
             'origin': [0.1, 0.5],
             'mount-point': [0.1, 0.5],
             'size': [50, 16],
-            'style': function (accentColor200) {
+            'style': function (accentColor100) {
                 return {
                     'font-size': '0.9em',
-                    'color': accentColor200,
+                    'color': accentColor100,
                     'cursor': 'pointer',
                 };
             },
             'content': function () {
                 return `<a style="display:block">LIVE</a>`;
+            },
+        },
+        '#btn4': {
+            'align': [0.95, 0.5],
+            'origin': [0.95, 0.5],
+            'mount-point': [0.95, 0.5],
+            'size': [64, 16],
+            'style': function (accentColor100) {
+                return {
+                    'font-size': '0.9em',
+                    'color': accentColor100,
+                    'cursor': 'pointer',
+                };
+            },
+            'content': function () {
+                return `<a style="display:block">ARCHIVE</a>`;
             },
         },
         '#programsNav': {
@@ -214,16 +234,16 @@ FamousFramework.scene('svitlana:radio', {
             'align': [1, 0.5],
             'origin': [1, 0.5],
             'mount-point': [1, 0.5],
-            'size': [30, 30],
+            'size': [28, 28],
             content: function () {
-                return `<a style="margin-left:2px;display:block;width:22px;height:30px;text-align: right"> > </a>`;
+                return `<a style="margin-left:1px;display:block;width:22px;height:30px;text-align: right"> > </a>`;
             },
             'style': function (primaryColor, primaryColorLight, accentColor, accentColor100, whiteframe2) {
                 return {
                     'border-radius': '50%',
                     'background-color': accentColor,
                     'box-shadow': whiteframe2,
-                    'font-size': '26px',
+                    'font-size': '24px',
                     'font-weight': '500',
                     'line-height': '30px',
                     'color': primaryColor,
@@ -235,16 +255,16 @@ FamousFramework.scene('svitlana:radio', {
             'align': [0, 0.5],
             'origin': [0, 0.5],
             'mount-point': [0, 0.5],
-            'size': [30, 30],
+            'size': [28, 28],
             content: function () {
-                return `<a style="display:block;width:22px;height:30px;text-align: right"> < </a>`;
+                return `<a style="margin-left:1px;display:block;width:22px;height:30px;text-align: center"> < </a>`;
             },
             'style': function (primaryColor, primaryColorLight, accentColor, accentColor100, whiteframe2) {
                 return {
                     'border-radius': '50%',
                     'background-color': accentColor,
                     'box-shadow': whiteframe2,
-                    'font-size': '26px',
+                    'font-size': '24px',
                     'font-weight': '500',
                     'line-height': '30px',
                     'color': primaryColor,
@@ -266,11 +286,7 @@ FamousFramework.scene('svitlana:radio', {
             'mount-point': [0.5, 0.5],
             'size': function (progWidth, progHeight) {
                 return [progWidth, progHeight];
-
             },
-            //content: function () {
-            //    return `<img src='https://s3-us-west-2.amazonaws.com/svet.com/radio/orange-backdrop-200.jpg'/>`;
-            //},
             'style': function (primaryColor, accentColor50, whiteframe3) {
                 return {
                     'border-radius': '2px',
@@ -282,6 +298,9 @@ FamousFramework.scene('svitlana:radio', {
                     'box-shadow': whiteframe3
                 };
             },
+            'rotation-z': function () {
+                return Math.PI / 2.1;
+            },
 
             '$repeat': function (programs) {
                 return programs;
@@ -290,7 +309,7 @@ FamousFramework.scene('svitlana:radio', {
             'content': function ($index) {
                 return '<div style="margin-top:8px"> July 25</div>';
             },
-            'position-x': function ($index, listPosition, progWidth, progMargin) {
+            'position-y': function ($index, listPosition, progWidth, progMargin) {
 
                 return -($index * progWidth + listPosition + $index * progMargin);
             },
@@ -345,7 +364,7 @@ FamousFramework.scene('svitlana:radio', {
                 }
 
                 $state.set('listPosition', Math.floor($state.get('listPosition') - (progWidth + progMargin)), {
-                    duration: 1000,
+                    duration: 800,
                     curve: 'easeOutBounce'
 
                 });
@@ -378,13 +397,14 @@ FamousFramework.scene('svitlana:radio', {
         ],
 
         progWidth: 164,
-        progHeight: 200,
+        progHeight: 190,
         progMargin: 5,
         whiteframe1: "rgba(0, 0, 0, 0.298039) 0px 1px ",
         whiteframe2: "rgba(0, 0, 0, 0.137255) 0px 2px 4px -1px, rgba(0, 0, 0, 0.0980392) 0px 4px 5px 0px, rgba(0, 0, 0, 0.0823529) 0px 1px 10px 0px",
         whiteframe3: "rgba(0, 0, 0, 0.298039) 0px 3px 5px -1px,rgba(0, 0, 0, 0.0980392) 0px 6px 10px 0px, rgba(0, 0, 0, 0.0823529) 0px 1px 18px 0px",
         /*Colors*/
-        primaryColor: '#3e2723',
+        //primaryColor: '#3e2723',
+        primaryColor: '#24231D',
         primaryColor50: '#efebe9',
         primaryColor100: '#d7ccc8',
         primaryColor200: '#bcaaa4',
@@ -403,17 +423,13 @@ FamousFramework.scene('svitlana:radio', {
         hintTextColor: '#9A9A9A',
         dividersColor: '#DBDBDB',
         /**/
-        containerColor1: 'primaryColor',
-        containerColor2: '#F5F5F5',
-        containerColor3: '#FAFAFA',
-        containerColor4: '#424242',
-        containerRed: '#E53935',
         activeIndex: 0,
         listPosition: 0,
-        //angle: 0,
-        //svOpacity: 0,
-        angle: Math.PI,
-        svOpacity: 1,
+        angle: 0,
+        svOpacity: 0,
+        //angle: Math.PI,
+        //svOpacity: 1,
+        zIndex: 0
     },
     tree: 'tree.html'
 })
