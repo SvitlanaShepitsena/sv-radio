@@ -1,1 +1,1 @@
-{"scripts":{"deploy-folder":"public/build/svitlana~radio","deploy":[],"setup":[["install"],["run","local-only-bootstrap","--","--watchAfterBuild=no"]]}}
+{"scripts":{"deploy-folder":"public/build/svitlana~radio","deploy":[],"setup":[["install"],["run","local-only-bootstrap","--","--watchAfterBuild=no"]]},"container_id":"1bbacfe8-2a85-4c90-815c-512916cd7bd7","container_name":"famous-seed-3db59600-3bb8-11e5-8738-dd31b8a058c9","widget_name":"famous-seed-3db59600-3bb8-11e5-8738-dd31b8a058c9","widget_id":"c7ce6616-2d2f-478c-b33f-ead5a4a4b51e"}

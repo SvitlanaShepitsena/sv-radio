@@ -51,7 +51,7 @@ FamousFramework.scene('svitlana:radio', {
             'mount-point': [0.5, 0],
             'size': [250, 220],
             'style': {
-                'background': 'url("https://s3-us-west-2.amazonaws.com/svet.com/radio/radio-backdrop.jpg") no-repeat',
+                'background': 'url("https://s3-us-west-2.amazonaws.com/svet.com/radio/radio-backdrop-2.jpg") no-repeat',
                 'text-align': 'center',
                 'font-size': '4em',
                 'cursor': 'pointer',
@@ -129,9 +129,6 @@ FamousFramework.scene('svitlana:radio', {
                 };
             },
             'position-z': '-2',
-            'opacity': function (svOpacity) {
-                return svOpacity;
-            },
 
             'rotation-y': function () {
                 return Math.PI;
@@ -312,21 +309,13 @@ FamousFramework.scene('svitlana:radio', {
                     finalIndex += 100;
                 }
                 return finalIndex;
-            },
-            'rotation-y': function (programsRotation) {
-
-                return programsRotation;
-            },
-
+            }
         }
     },
     events: {
         '#radioLogo,#slider,#btn2, #btn3': {
             'click': function ($state) {
                 $state.set('angle', $state.get('angle') + Math.PI, {
-                    duration: 1000
-                });
-                $state.set('svOpacity', $state.get('svOpacity') === 0 ? 1 : 0, {
                     duration: 1000
                 });
             }
@@ -344,12 +333,10 @@ FamousFramework.scene('svitlana:radio', {
                 }
                 $state.set('listPosition', Math.floor($state.get('listPosition') + (progWidth + progMargin)), {
                     duration: 1000,
-                    curve: 'easeOutBounce'
-                })
-            }
+                    curve: 'easeOutBounce' }) }
         },
         '#forw': {
-            'click': function ($state) {
+            'click': function ($state,$timelines) {
                 var listPosition = $state.get('listPosition');
                 var progWidth = $state.get('progWidth');
                 var progMargin = $state.get('progMargin');
@@ -364,18 +351,9 @@ FamousFramework.scene('svitlana:radio', {
                 $state.set('listPosition', Math.floor($state.get('listPosition') - (progWidth + progMargin)), {
                     duration: 500,
                     curve: 'easeOutBounce'
+                });
 
-                })
-                    .thenSet('programsRotation', $state.get('programsRotation')-Math.PI /4, {
-                        duration:500
-
-                    })
-                    .thenSet('programsRotation', $state.get('programsRotation')+Math.PI/4, {
-                        duration: 1000
-
-                    });
-
-
+                $timelines.get('rotate-animation').start({ duration: 1500 });
             }
         }
     },
@@ -403,7 +381,6 @@ FamousFramework.scene('svitlana:radio', {
             }
         ],
 
-        svOpacity: 1,
         progWidth: 164,
         progHeight: 190,
         progMargin: 5,
@@ -438,19 +415,27 @@ FamousFramework.scene('svitlana:radio', {
         containerRed: '#E53935',
         activeIndex: 0,
         listPosition: 0,
-        //angle: 0,
-        angle: Math.PI,
+        angle: 0,
+        //angle: Math.PI,
         programsRotation: 0
     },
     tree: 'tree.html'
 })
     .config({
-        imports: {
-            'famous:core': ['node'],
-            'famous:events': ['click'],
-            'robert.smitherson': ['accordion'],
-            'michael.raymond.jones': ['list-item'],
-            'elise.brown': ['triangle-image']
+
+    })
+    .timelines({
+        'rotate-animation': {
+            '.program': {
+                'rotation-y': {
+                    '0%':   { value: 0, curve: 'outBack' },
+                    '25%':   { value: Math.PI/4, curve: 'outBack' },
+                    '50%':   { value: 0, curve: 'outBack' },
+                    '75%':   { value: -Math.PI/4, curve: 'outBack' },
+                    '100%':   { value: 0, curve: 'easeOutBounce' },
+                }
+            },
         }
     });
 ;
+
