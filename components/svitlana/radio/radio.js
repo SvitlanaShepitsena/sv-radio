@@ -51,7 +51,7 @@ FamousFramework.scene('svitlana:radio', {
             'mount-point': [0.5, 0],
             'size': [250, 220],
             'style': {
-                'background': 'url("https://s3-us-west-2.amazonaws.com/svet.com/radio/radio-backdrop-2.jpg") no-repeat',
+                'background': 'url("https://s3-us-west-2.amazonaws.com/svet.com/radio/radio-backdrop.jpg") no-repeat',
                 'text-align': 'center',
                 'font-size': '4em',
                 'cursor': 'pointer',
@@ -169,16 +169,12 @@ FamousFramework.scene('svitlana:radio', {
             'origin': [0.5, 0.5],
             'mount-point': [0.5, 0.5],
             'size': [240, 220],
-
             'style': function (primaryColor50) {
                 return {
                     'border-radius': '2px',
                     'overflow': 'hidden',
                 };
             },
-            'rotation-z': function () {
-                return -Math.PI / 2.1;
-            }
         },
         '#programsFooter': {
             'align': [0.5, 1],
@@ -298,9 +294,6 @@ FamousFramework.scene('svitlana:radio', {
                     'box-shadow': whiteframe3
                 };
             },
-            'rotation-z': function () {
-                return Math.PI / 2.1;
-            },
 
             '$repeat': function (programs) {
                 return programs;
@@ -309,7 +302,7 @@ FamousFramework.scene('svitlana:radio', {
             'content': function ($index) {
                 return '<div style="margin-top:8px"> July 25</div>';
             },
-            'position-y': function ($index, listPosition, progWidth, progMargin) {
+            'position-x': function ($index, listPosition, progWidth, progMargin) {
 
                 return -($index * progWidth + listPosition + $index * progMargin);
             },
@@ -319,6 +312,10 @@ FamousFramework.scene('svitlana:radio', {
                     finalIndex += 100;
                 }
                 return finalIndex;
+            },
+            'rotation-y': function (programsRotation) {
+
+                return programsRotation;
             },
 
         }
@@ -339,7 +336,8 @@ FamousFramework.scene('svitlana:radio', {
                 var listPosition = $state.get('listPosition');
                 var progWidth = $state.get('progWidth');
                 var progMargin = $state.get('progMargin');
-                console.log(listPosition);
+
+                var programsRotation = $state.get('programsRotation');
 
                 if (listPosition >= 0) {
                     return;
@@ -347,8 +345,7 @@ FamousFramework.scene('svitlana:radio', {
                 $state.set('listPosition', Math.floor($state.get('listPosition') + (progWidth + progMargin)), {
                     duration: 1000,
                     curve: 'easeOutBounce'
-
-                });
+                })
             }
         },
         '#forw': {
@@ -357,17 +354,27 @@ FamousFramework.scene('svitlana:radio', {
                 var progWidth = $state.get('progWidth');
                 var progMargin = $state.get('progMargin');
                 var programs = $state.get('programs');
-                console.log(listPosition);
+                var programsRotation = $state.get('programsRotation');
+                console.log(programsRotation);
 
                 if (listPosition < (-(programs.length - 2) * (progWidth + progMargin))) {
                     return;
                 }
 
                 $state.set('listPosition', Math.floor($state.get('listPosition') - (progWidth + progMargin)), {
-                    duration: 800,
+                    duration: 500,
                     curve: 'easeOutBounce'
 
-                });
+                })
+                    .thenSet('programsRotation', $state.get('programsRotation')-Math.PI /4, {
+                        duration:500
+
+                    })
+                    .thenSet('programsRotation', $state.get('programsRotation')+Math.PI/4, {
+                        duration: 1000
+
+                    });
+
 
             }
         }
@@ -396,6 +403,7 @@ FamousFramework.scene('svitlana:radio', {
             }
         ],
 
+        svOpacity: 1,
         progWidth: 164,
         progHeight: 190,
         progMargin: 5,
@@ -423,14 +431,26 @@ FamousFramework.scene('svitlana:radio', {
         hintTextColor: '#9A9A9A',
         dividersColor: '#DBDBDB',
         /**/
+        containerColor1: 'primaryColor',
+        containerColor2: '#F5F5F5',
+        containerColor3: '#FAFAFA',
+        containerColor4: '#424242',
+        containerRed: '#E53935',
         activeIndex: 0,
         listPosition: 0,
-        angle: 0,
-        svOpacity: 0,
-        //angle: Math.PI,
-        //svOpacity: 1,
-        zIndex: 0
+        //angle: 0,
+        angle: Math.PI,
+        programsRotation: 0
     },
     tree: 'tree.html'
 })
+    .config({
+        imports: {
+            'famous:core': ['node'],
+            'famous:events': ['click'],
+            'robert.smitherson': ['accordion'],
+            'michael.raymond.jones': ['list-item'],
+            'elise.brown': ['triangle-image']
+        }
+    });
 ;
